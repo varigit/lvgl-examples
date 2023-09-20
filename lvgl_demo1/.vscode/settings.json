@@ -1,0 +1,24 @@
+{
+	"VARISCITE": {
+		/* Target Device Settings */
+		"TARGET_IP":"192.168.1.175",
+
+		/* Project Settings */
+		"PROGRAM":"lvgl_demo1.bin",
+
+		/* Yocto SDK Configuration */
+		"ARCH":"arm-fslc-linux-gnueabi",
+		"OECORE_NATIVE_SYSROOT":"/opt/fslc-framebuffer/4.0/sysroots/x86_64-fslcsdk-linux",
+		"SDKTARGETSYSROOT": "/opt/fslc-framebuffer/4.0/sysroots/cortexa7t2hf-neon-fslc-linux-gnueabi",
+
+		/* Yocto SDK Constants */
+		"CC_PREFIX": "${config:VARISCITE.OECORE_NATIVE_SYSROOT}/usr/bin/${config:VARISCITE.ARCH}/${config:VARISCITE.ARCH}-",
+		"CC_FLAGS": "-mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong  -O2 -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security --sysroot=${config:VARISCITE.SDKTARGETSYSROOT}",
+		"CXX": "${config:VARISCITE.CC_PREFIX}g++ ${config:VARISCITE.CC_FLAGS}",
+		"CC": "${config:VARISCITE.CC_PREFIX}gcc ${config:VARISCITE.CC_FLAGS}",
+		"INCLUDE": "-I${config:VARISCITE.SDKTARGETSYSROOT}/usr/include/lvgl/lv_drivers",
+		"LDLIBS": "-llvgl -llv_drivers -ldrm",
+		"CFLAGS": "-Wall"
+	},
+	"cmake.configureOnOpen": false
+}
