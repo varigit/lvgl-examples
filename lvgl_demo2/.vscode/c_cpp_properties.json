@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${config:VARISCITE.SDKTARGETSYSROOT}/usr/include/**",
+                "${config:VARISCITE.SDKTARGETSYSROOT}/usr/include/lvgl/lv_drivers/**"
+            ]
+        }
+    ],
+    "version": 4
+}
